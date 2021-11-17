@@ -27,7 +27,7 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">แก้ไขยอดเงิน</h1>
+            <h1 class="h3 mb-0 text-gray-800">อัปเดตยอดเงิน</h1>
         </div>
     
         <!-- content -->

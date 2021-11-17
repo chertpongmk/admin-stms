@@ -77,7 +77,7 @@
                                             </td>
                                             
                                             <td class="text-center">
-                                              <a href="edit_money.php?mon_id=<?php echo base64_encode($result['mon_id']);  ?>" class="btn btn-warning"><i class="far fa-edit"></i> เบิกเงินโครงการ</a>
+                                              <a href="withdraw.php?mon_id=<?php echo base64_encode($result['mon_id']);  ?>" class="btn btn-warning"><i class="far fa-edit"></i> เบิกเงินโครงการ</a>
                                               <!-- <a href="edit_money.php?mon_id=<?php echo $result['mon_id']; ?>" class="btn btn-warning"><i class="far fa-edit"></i> แก้ไข</a>
                                               <a href="" class="btn btn-danger"><i class="far fa-trash-alt"></i> ลบ</a> -->
                                             </td>  
