@@ -12,7 +12,7 @@
 
         echo '<meta http-equiv="refresh" content="1;url=../add_item.php" />';
     } else {
-    echo "Error updating record: " . $conn->error;
+    echo "Error updating record: " . $condb->error;
     }
 
     $condb->close();

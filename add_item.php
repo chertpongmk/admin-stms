@@ -73,7 +73,10 @@
                                               ?>
                                             </td>
                                             <td>
-
+                                            <?php 
+                                                 $value=$result['pj_money'] ;
+                                                 echo number_format($value); 
+                                              ?>
                                             </td>
                                             
                                             <td class="text-center">
