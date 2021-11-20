@@ -62,7 +62,7 @@
                  
                     <div class="row mt-3 text-center">
                         <div class="col-12">
-                            <a href="add_ระำท.php" class="btn btn-danger">กลับ</a>
+                            <a href="add_item.php" class="btn btn-danger">กลับ</a>
                             <button type="submit" class="btn btn-primary">บันทึกข้อมูล</button>
                         </div>
                     </div>
