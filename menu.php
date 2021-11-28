@@ -20,7 +20,8 @@
 
 <!-- Divider -->
 <hr class="sidebar-divider">
-
+<?php if($_SESSION["m_level"]=="admin"){
+    ?>
 <div class="sidebar-heading">
     Menu Admin
 </div>
@@ -35,17 +36,10 @@
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">หัวข้อ:</h6>
             <a class="collapse-item <?php if ($menu == "add_user") { echo "active"; } ?>" href="add_user.php">เพิ่มข้อมูลผู้ใช้งาน</a>
-            <a class="collapse-item <?php if ($menu == "setting_money") { echo "active"; } ?>" href="setting_money.php">เพิ่มแผนปฏิบัติการ</a>
+            <a class="collapse-item <?php if ($menu == "setting_money") { echo "active"; } ?>" href="setting_money.php">เพิ่มฝ่ายงาน</a>
         </div>
     </div>
 </li>
-
-<hr class="sidebar-divider">
-<!-- Heading -->
-<div class="sidebar-heading">
-    Menu
-</div>
-
 <!-- Nav Item - Pages Collapse Menu -->
 
 <li class="nav-item">
@@ -56,13 +50,15 @@
     </a>
     <div id="collapseTwo" class="collapse <?php if ($menu == "add_item" ) { echo "show"; } ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">รายชื่อโครงการแผนปฏิบัติการ:</h6>
-            <a class="collapse-item <?php if ($menu == "add_item") { echo "active"; } ?>" href="add_item.php">เพิ่มโครงการ</a>
+            <h6 class="collapse-header">รายการงบประมาณ</h6>
+            <a class="collapse-item <?php if ($menu == "add_item") { echo "active"; } ?>" href="add_item.php">งบรวม</a>
+            <a class="collapse-item <?php if ($menu == "") { echo "active"; } ?>" href="add_item.php">งบรายหัว</a>
+            <a class="collapse-item <?php if ($menu == "") { echo "active"; } ?>" href="add_item.php">งบพัฒนาผู้เรียน</a>
             <!-- <a class="collapse-item <?php if ($menu == "") { echo "active"; } ?>" href="cards.html">Cards</a> -->
         </div>
     </div>
 </li>
-
+<?php }?>
 <!-- Nav Item - Utilities Collapse Menu -->
 <!-- <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
