@@ -1,5 +1,5 @@
 <?php 
-        $menu="add_item";
+        $menu="in_item";
     ?>
 <?php 
       include ('head.php');
@@ -52,8 +52,18 @@
                         </div>
                         <div class="col-6">
                             <div class="form-group">
+                                <label for="exampleFormControlSelect1">ประเภทงบประมาณ</label>
+                                <select class="form-control" id="exampleFormControlSelect1" name="type_project">                           
+                                        <option value="1">งบรวม</option>
+                                        <option value="2">งบรายหัว</option>
+                                        <option value="3">งบพัฒนาผู้เรียน</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
                                 <label for="exampleFormControlInput1">จำนวนเงินงบประมาณ</label>
-                                <input type="text" class="form-control" id="exampleFormControlInput1" name="pj_money" required>
+                                <input type="number" class="form-control" id="exampleFormControlInput1" name="pj_money" required>
                             </div>
                         </div>
                     </div>

@@ -1,5 +1,5 @@
 <?php 
-        $menu="add_item";
+        $menu="add_item3";
     ?>
 <?php 
       include ('head.php');
@@ -24,7 +24,7 @@
       <div class="card-header py-3">
         <div class="row">
           <div class="col-10">
-            <h6 class="m-0 font-weight-bold text-primary">ตารางงบรวม</h6>
+            <h6 class="m-0 font-weight-bold text-primary">ตารางงบพัฒนาผู้เรียน</h6>
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@
                                         include 'conn.php';
                                         date_default_timezone_set("Asia/Bangkok");
                                         
-                                          $sql = "SELECT * FROM `tb_project`JOIN tb_money ON tb_project.mon_id=tb_money.mon_id left JOIN tb_statement ON tb_project.pj_id=tb_statement.pj_id WHERE tb_project.type_project=1";          
+                                          $sql = "SELECT * FROM `tb_project`JOIN tb_money ON tb_project.mon_id=tb_money.mon_id left JOIN tb_statement ON tb_project.pj_id=tb_statement.pj_id where tb_project.type_project=3";          
                                           $query = mysqli_query($condb, $sql);
                                       
                                         $count = 0;
@@ -71,18 +71,17 @@
                 </td>
                 <td>
                   <?php 
-                                // echo $result['num_mon'];                   
-                      if ($result['num_mon']==null) {
-                            $value=$result['pj_money'] ;
-                             echo number_format($value);
-                      }else {
-                           $num1=$result['pj_money'] ;
-                           $num2=$result['num_mon'];
-                           $re=$num1-$num2;
-                           echo number_format($re);
-                           
-                      }
-                  ?>
+                                    if ($result['num_mon']==null) {
+                                      $value=$result['pj_money'] ;
+                                       echo number_format($value);
+                                }else {
+                                     $num1=$result['pj_money'] ;
+                                     $num2=$result['num_mon'];
+                                     $re=$num1-$num2;
+                                     echo number_format($re);
+                                     
+                                }
+                                              ?>
                 </td>
 
                 <td class="text-center">

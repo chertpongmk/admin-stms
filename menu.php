@@ -32,11 +32,12 @@
         <i class="fas fa-fw fa-cog"></i>
         <span>ตั้งค่า</span>
     </a>
-    <div id="setting" class="collapse <?php if ($menu == "add_user" || $menu=="setting_money") { echo "show"; } ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+    <div id="setting" class="collapse <?php if ($menu == "add_user" || $menu=="setting_money" || $menu=="in_item") { echo "show"; } ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">หัวข้อ:</h6>
-            <a class="collapse-item <?php if ($menu == "add_user") { echo "active"; } ?>" href="add_user.php">เพิ่มข้อมูลผู้ใช้งาน</a>
+            <!-- <a class="collapse-item <?php if ($menu == "add_user") { echo "active"; } ?>" href="add_user.php">เพิ่มข้อมูลผู้ใช้งาน</a> -->
             <a class="collapse-item <?php if ($menu == "setting_money") { echo "active"; } ?>" href="setting_money.php">เพิ่มฝ่ายงาน</a>
+            <a class="collapse-item <?php if ($menu == "in_item") { echo "active"; } ?>" href="in_item.php">เพิ่มโครงการ</a>
         </div>
     </div>
 </li>
@@ -48,12 +49,12 @@
         <i class="fas fa-fw fa-cog"></i>
         <span>โครงการ</span>
     </a>
-    <div id="collapseTwo" class="collapse <?php if ($menu == "add_item" ) { echo "show"; } ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+    <div id="collapseTwo" class="collapse <?php if ($menu == "add_item" || $menu == "add_item2" ||$menu == "add_item3" ) { echo "show"; } ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">รายการงบประมาณ</h6>
             <a class="collapse-item <?php if ($menu == "add_item") { echo "active"; } ?>" href="add_item.php">งบรวม</a>
-            <a class="collapse-item <?php if ($menu == "") { echo "active"; } ?>" href="add_item.php">งบรายหัว</a>
-            <a class="collapse-item <?php if ($menu == "") { echo "active"; } ?>" href="add_item.php">งบพัฒนาผู้เรียน</a>
+            <a class="collapse-item <?php if ($menu == "add_item2") { echo "active"; } ?>" href="add_item2.php">งบรายหัว</a>
+            <a class="collapse-item <?php if ($menu == "add_item3") { echo "active"; } ?>" href="add_item3.php">งบพัฒนาผู้เรียน</a>
             <!-- <a class="collapse-item <?php if ($menu == "") { echo "active"; } ?>" href="cards.html">Cards</a> -->
         </div>
     </div>

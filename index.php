@@ -8,7 +8,7 @@
           include 'conn.php';
           date_default_timezone_set("Asia/Bangkok");
                                         
-            $sql = "SELECT * ,SUM(tb_project.pj_money) as total FROM `tb_money` left JOIN tb_project ON tb_project.mon_id=tb_money.mon_id GROUP BY tb_money.mon_id;";          
+            $sql = "SELECT * ,SUM(tb_project.pj_money) as total FROM `tb_money` left JOIN tb_project ON tb_project.mon_id=tb_money.mon_id left JOIN tb_statement ON tb_project.pj_id=tb_statement.pj_id GROUP BY tb_money.mon_id;";          
             $query = mysqli_query($condb, $sql);
 
      ?>
@@ -23,15 +23,14 @@
         <div class="container-fluid">
 
             <!-- Page Heading -->
-            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-            </div>
+            </div> -->
 
             <!-- Content Row -->
 
             <div class="row">
 
-                <!-- Earnings (Monthly) Card Example -->
                 <?php 
                             $color=array("warning","primary","danger","success","info");
                             $count=-1;
@@ -55,8 +54,18 @@
                                                 if ($row['pj_money']==null) {
                                                     echo 0;
                                                 }else{
-                                                    $value=$row['total'] ;
-                                                    echo number_format(" ".$value);  
+                                                                                  
+                                                    if ($row['num_mon']==null) {
+                                                        $value=$row['total'] ;
+                                                        echo number_format(" ".$value);
+                                                    }else {
+                                                        $num1=$row['total'] ;
+                                                        $num2=$row['num_mon'];
+                                                        $re=$num1-$num2;
+                                                        echo number_format(" ".$re);
+                                                        
+                                                    }
+                                                      
                                                 }
                                                 ?>
                                     </div>
@@ -72,7 +81,6 @@
 
             </div>
 
-            <!-- Content Row -->
             
                 <div class="card shadow mb-12">
                     <div class="card-header py-3">
@@ -146,7 +154,7 @@
 
 
         </div>
-        <!-- /.container-fluid -->
+        
 
     </div>
     <!-- End of Main Content -->
