@@ -9,8 +9,8 @@
        
          
          
-        $mon_id=base64_decode($_GET['mon_id']);
-        $sql = "SELECT * FROM tb_money WHERE mon_id='$mon_id' ";
+        $pj_id=base64_decode($_GET['pj_id']);
+        $sql = "SELECT * FROM `tb_project` WHERE  pj_id='$pj_id' ";
         $result = mysqli_query($condb, $sql) or die ("Error in query: $sql " . mysqli_error());
         $row = mysqli_fetch_array($result);
         extract($row);
@@ -27,33 +27,29 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">อัปเดตยอดเงิน</h1>
+            <h1 class="h3 mb-0 text-gray-800">เบิกเงินโครงการ <?php echo $row['pj_name']; ?></h1>
         </div>
     
         <!-- content -->
         <div class="card shadow mb-4">
             <div class="card-body">
-                <form action="api/update_mon.php" method="GET">
+                <form action="api/state.php" method="GET">
                     <div class="row">
                        
-                        <div class="col-4">
+                      
+                        <div class="col-6">
                             <div class="form-group">
-                                <label for="exampleFormControlInput1">ชื่อโครงการ</label>
-                                <input type="hidden" class="form-control" id="exampleFormControlInput1" name="mon_id" value="<?php echo $row['mon_id']; ?>" readonly>
-                                <input type="text" class="form-control" id="exampleFormControlInput1" name="mon_name" value="<?php echo $row['mon_name']; ?>" >
+                                <label for="exampleFormControlInput1">จำนวนเงินที่ต้องการเบิก</label>
+                                <input type="number" class="form-control" id="exampleFormControlInput1" name="num_mon1"  required>
+                                <input type="hidden" class="form-control" id="exampleFormControlInput1" name="pj_id" value="<?php echo $pj_id; ?>" readonly>
                             </div>
                         </div>
-                        <!-- <div class="col-4">
-                            <div class="form-group">
-                                <label for="exampleFormControlInput1">จำนวนเงิน</label>
-                                <input type="number" class="form-control" id="exampleFormControlInput1" name="mon_total" value="<?php echo $row['mon_total'] ?>" required>
-                            </div>
-                        </div> -->
+                       
                     </div>
                    
                     <div class="row mt-3 text-center">
                         <div class="col-12">
-                            <a href="setting_money.php" class="btn btn-danger">กลับ</a>
+                            <a href="add_item.php" class="btn btn-danger">กลับ</a>
                             <button type="submit" class="btn btn-primary">บันทึกข้อมูล</button>
                         </div>
                     </div>

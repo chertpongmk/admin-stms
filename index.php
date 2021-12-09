@@ -112,7 +112,7 @@
                                         include 'conn.php';
                                         date_default_timezone_set("Asia/Bangkok");
                                         
-                                          $sql = "SELECT * FROM `tb_project`JOIN tb_money ON tb_project.mon_id=tb_money.mon_id";          
+                                          $sql = "SELECT *,tb_project.pj_id as id  FROM `tb_project` left JOIN tb_money ON tb_project.mon_id=tb_money.mon_id left JOIN tb_statement ON tb_project.pj_id=tb_statement.pj_id";          
                                           $query = mysqli_query($condb, $sql);
                                       
                                         $count = 0;
@@ -133,10 +133,19 @@
                                               ?>
                                         </td>
                                         <td>
-                                            <?php 
-                                                 $value=$result['pj_money'] ;
-                                                 echo number_format($value); 
-                                              ?>
+                                        <?php 
+                                // echo $result['num_mon'];                   
+                                        if ($result['num_mon']==null) {
+                                                $value=$result['pj_money'] ;
+                                                echo number_format($value);
+                                        }else {
+                                            $num1=$result['pj_money'] ;
+                                            $num2=$result['num_mon'];
+                                            $re=$num1-$num2;
+                                            echo number_format($re);
+                                            
+                                        }
+                                         ?>
                                         </td>
 
                                         

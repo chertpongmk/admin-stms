@@ -49,7 +49,7 @@
                                         include 'conn.php';
                                         date_default_timezone_set("Asia/Bangkok");
                                         
-                                          $sql = "SELECT * FROM `tb_project`JOIN tb_money ON tb_project.mon_id=tb_money.mon_id left JOIN tb_statement ON tb_project.pj_id=tb_statement.pj_id WHERE tb_project.type_project=1";          
+                                          $sql = "SELECT *,tb_project.pj_id as id  FROM `tb_project` left JOIN tb_money ON tb_project.mon_id=tb_money.mon_id left JOIN tb_statement ON tb_project.pj_id=tb_statement.pj_id WHERE tb_project.type_project=1  ";          
                                           $query = mysqli_query($condb, $sql);
                                       
                                         $count = 0;
@@ -61,6 +61,7 @@
 
 
                 <td><?php echo $result['pj_name']?></td>
+                
                 <td><?php echo $result['mon_name']?></td>
                 <td>
 
@@ -86,8 +87,9 @@
                 </td>
 
                 <td class="text-center">
-                  <a href="withdraw.php?mon_id=<?php echo base64_encode($result['mon_id']);  ?>"
-                    class="btn btn-warning"><i class="far fa-edit"></i> เบิกเงินโครงการ</a>
+                  <!-- <?php echo $result['id']; ?> -->
+                  <a href="withdraw.php?pj_id=<?php echo base64_encode($result['id']);  ?>"class="btn btn-warning"><i class="far fa-edit"></i> เบิกเงินโครงการ</a>
+                  <!-- <a href="statement.php?pj_id=<?php echo base64_encode($result['id']);  ?>"class="btn btn-primary"><i class="far fa-edit"></i> ประวัติการเบิก</a> -->
                   <!-- <a href="edit_money.php?mon_id=<?php echo $result['mon_id']; ?>" class="btn btn-warning"><i class="far fa-edit"></i> แก้ไข</a>
                                               <a href="" class="btn btn-danger"><i class="far fa-trash-alt"></i> ลบ</a> -->
                 </td>
